@@ -1,3 +1,4 @@
+import Modal from '../UI/Modal'
 import css from './Cart.module.css'
 
 const Cart = ()=>{
@@ -6,7 +7,7 @@ const Cart = ()=>{
                                 {
                                         id: 'm6',
                                         name: 'Schnitzel',
-                                        price: 16.5,
+                                        price: 16.51,
                                         amount: 3
                                 },
                                 {
@@ -23,20 +24,23 @@ const Cart = ()=>{
                                 }
                         ]
                         .map((item)=>(
-                                <li>{item.name}</li>
+                                <li>
+                                        <span>{item.name}</span>
+                                        <span>${item.price}</span>
+                                </li>
                         ))
                 }</ul>
 
-        return <div>
+        return <Modal>
                 {cardItem}
                 <div className={css.total}>
                         <span>Total Amount</span>
                         <span>$48.48</span>
                 </div>
-                <div className={css.action}>
+                <div className={css.actions}>
                         <button className={css['button--alt']}>Close</button>
                         <button className={css.button}>Order</button>
                 </div>
-        </div>
+        </Modal>
 }
 export default Cart
