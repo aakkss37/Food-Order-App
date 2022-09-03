@@ -6,11 +6,14 @@ import CartContext from '../../store/cart-context';
 const HeaderCartButton = (props) => {
 
         const cartctx = useContext(CartContext)
-
         const initialValue = 0
         const numberOfCartItems = cartctx.items.reduce((currentValue, item) => {
                 return currentValue + item.amount
          }, initialValue);
+
+
+        // const btnClasses = `${classes.button} ${classes.bump}`
+
 
         return (
                 <button className={classes.button} onClick={props.onClick}>
@@ -21,6 +24,6 @@ const HeaderCartButton = (props) => {
                         <span className={classes.badge}>{numberOfCartItems}</span>
                 </button>
         );
-};
+};  
 
 export default HeaderCartButton;
